@@ -1,4 +1,4 @@
-package com.mrjaffesclass.apcs.mvc.template;
+package mvc.tictactoe;
 
 import com.mrjaffesclass.apcs.messenger.*;
 
@@ -13,9 +13,9 @@ public class Model implements MessageHandler {
   private final Messenger mvcMessaging;
 
   // Model's data variables
-  private int variable1;
-  private int variable2;
-
+private boolean whoseMove;
+private boolean gameOver; 
+private int[][] board;
   /**
    * Model constructor: Create the data representation of the program
    * @param messages Messaging class instantiated by the Controller for 
@@ -58,46 +58,6 @@ public class Model implements MessageHandler {
         setVariable2(getVariable2()-Constants.FIELD_2_INCREMENT);
       }      
     }
-  }
-
-  /**
-   * Getter function for variable 1
-   * @return Value of variable1
-   */
-  public int getVariable1() {
-    return variable1;
-  }
-
-  /**
-   * Setter function for variable 1
-   * @param v New value of variable1
-   */
-  public void setVariable1(int v) {
-    variable1 = v;
-    // When we set a new value to variable 1 we need to also send a
-    // message to let other modules know that the variable value
-    // was changed
-    mvcMessaging.notify("model:variable1Changed", variable1, true);
-  }
-  
-  /**
-   * Getter function for variable 1
-   * @return Value of variable2
-   */
-  public int getVariable2() {
-    return variable2;
-  }
-  
-  /**
-   * Setter function for variable 2
-   * @param v New value of variable 2
-   */
-  public void setVariable2(int v) {
-    variable2 = v;
-    // When we set a new value to variable 2 we need to also send a
-    // message to let other modules know that the variable value
-    // was changed
-    mvcMessaging.notify("model:variable2Changed", variable2, true);
   }
 
 }

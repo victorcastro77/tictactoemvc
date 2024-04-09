@@ -15,7 +15,8 @@ public class Model implements MessageHandler {
   // Model's data variables
 private boolean whoseMove;
 private boolean gameOver; 
-private int[][] board;
+private String[][] board;
+
   /**
    * Model constructor: Create the data representation of the program
    * @param messages Messaging class instantiated by the Controller for 
@@ -23,6 +24,10 @@ private int[][] board;
    */
   public Model(Messenger messages) {
     mvcMessaging = messages;
+    
+this.board = new String[3][3];
+
+
   }
   
   /**
@@ -33,6 +38,16 @@ private int[][] board;
     setVariable1(10);
     setVariable2(-10);
   }
+  private void newGame() {
+    for(int row=0; row<this.board.length; row++) {
+      for (int col=0; col<this.board[0].length; col++) {
+        this.board[row][col] = "";
+      }
+    }
+    this.whoseMove = false;
+    this.gameOver = false;
+  }
+
   
   @Override
   public void messageHandler(String messageName, Object messagePayload) {

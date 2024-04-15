@@ -219,57 +219,13 @@ boolean gameOver = false;
     boolean whoseTurn = false;
     private void onClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onClick
         JButton button = (JButton)evt.getSource();
-this.mvcMessaging.notify("playerMove", button.getName());
-    if (button.getText().equals("") && !this.gameOver) {
-      String player = (this.whoseTurn) ? "X" : "O";
-      button.setText(player);
-      String winner = this.isWinner();
-      if (!winner.equals("")) {
-          jLabel1.setText(winner+" Wins the game!");
-          this.gameOver = true;
-      }
-      this.whoseTurn = !this.whoseTurn;
-    }
+        this.mvcMessaging.notify("playerMove", button.getName());
     }//GEN-LAST:event_onClick
 
   /**
    * @param args the command line arguments
    */
-private String isWinner() {
-  // Get the text contents of each button.  
-  // Be sure you're accessing the
-  // buttons in the order you want.  
-  // The Netbeans UI sometimes mixes up
-  // the numbers on the button names so they're not in the 
-  // order you expect
-  String[][] status = new String[3][3];
-  status[0][0] = jButton1.getText();
-  status[0][1] = jButton2.getText();
-  status[0][2] = jButton3.getText();
-  status[1][0] = jButton4.getText();
-  status[1][1] = jButton5.getText();
-  status[1][2] = jButton6.getText();
-  status[2][0] = jButton7.getText();
-  status[2][1] = jButton8.getText();
-  status[2][2] = jButton9.getText();
 
-  // Check the rows and columns for a tic tac toe
-  for (int i=0; i<3; i++) {
-    if (!status[i][0].isEmpty() && status[i][0].equals(status[i][1]) && status[i][0].equals(status[i][2]))
-      return status[i][0];
-    if (!status[0][i].isEmpty() && status[0][i].equals(status[1][i]) && status[0][i].equals(status[2][i]))
-      return status[0][i];
-  }
-  
-  // Check the diagonals
-  if (!status[0][0].isEmpty() && status[0][0].equals(status[1][1]) && status[0][0].equals(status[2][2]))
-    return status[0][0];
-  if (!status[0][2].isEmpty() && status[0][2].equals(status[1][1]) && status[0][2].equals(status[2][0]))
-    return status[0][2];
-
-  // If we haven't found it, then return a blank string
-  return "";
-}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

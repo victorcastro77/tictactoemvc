@@ -254,17 +254,7 @@ boolean gameOver = false;
     }//GEN-LAST:event_onClick
 
     private void newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameActionPerformed
-        // TODO add your handling code here:
-      jButton1.setText("");
-      jButton2.setText("");
-      jButton3.setText("");
-      jButton4.setText("");
-      jButton5.setText("");
-      jButton6.setText("");
-      jButton7.setText("");
-      jButton8.setText("");
-      jButton9.setText("");
-      
+        this.mvcMessaging.notify("newGame", "");
     }//GEN-LAST:event_newGameActionPerformed
 
   /**

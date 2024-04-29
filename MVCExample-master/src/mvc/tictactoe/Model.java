@@ -40,6 +40,7 @@ this.mvcMessaging.subscribe("newGame", this);
 
   }
   private void newGame() {
+      
       this.board = new String[3][3];
     for(int row=0; row<this.board.length; row++) {
       for (int col=0; col<this.board[0].length; col++) {
